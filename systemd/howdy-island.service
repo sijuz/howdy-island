@@ -1,0 +1,16 @@
+[Unit]
+Description=howdy-island — face-scan OSD for Howdy
+Documentation=https://github.com/sijuz/howdy-island
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=%h/.local/share/howdy-island
+ExecStart=/usr/bin/python3 -m howdy_island
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=graphical-session.target

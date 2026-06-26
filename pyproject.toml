@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "howdy-island"
+version = "0.1.0"
+description = "Dynamic Island–style on-screen indicator for Howdy face authentication on Linux/Wayland."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "GPL-3.0-or-later" }
+authors = [{ name = "sijuz" }]
+keywords = ["howdy", "face-authentication", "wayland", "kde", "osd", "gtk-layer-shell"]
+classifiers = [
+    "Environment :: X11 Applications :: GTK",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Desktop Environment",
+]
+
+# Runtime dependencies are provided by the system, not PyPI:
+#   - PyGObject (python3-gobject)
+#   - GTK 3 (gtk3)
+#   - gtk-layer-shell (+ its GObject-Introspection typelib)
+# See README.md for distro-specific package names.
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/sijuz/howdy-island"
+Issues = "https://github.com/sijuz/howdy-island/issues"
+
+[project.scripts]
+howdy-island = "howdy_island.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
