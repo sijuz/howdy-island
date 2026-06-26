@@ -61,6 +61,28 @@ compositors.
 
 ## Install
 
+### From a release (prebuilt packages)
+
+Download the latest `.deb` (Ubuntu/Debian) or `.rpm` (Fedora) from the
+[Releases page](https://github.com/sijuz/howdy-island/releases), then:
+
+```bash
+# Ubuntu / Debian
+sudo apt install ./howdy-island_*_all.deb
+
+# Fedora
+sudo dnf install ./howdy-island-*.noarch.rpm
+```
+
+After installing, enable the per-user service (this is a *user* service, so it
+is enabled per user, not system-wide):
+
+```bash
+systemctl --user enable --now howdy-island.service
+```
+
+### From source
+
 ```bash
 git clone https://github.com/sijuz/howdy-island.git
 cd howdy-island
