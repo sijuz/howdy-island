@@ -1,0 +1,13 @@
+<services>
+  <!--
+    Fetch the upstream source tarball for the tagged release.
+    On a new release, bump the tag in `path` (and the Version in
+    howdy-island.spec / debian.changelog).
+  -->
+  <service name="download_url">
+    <param name="protocol">https</param>
+    <param name="host">github.com</param>
+    <param name="path">/sijuz/howdy-island/archive/refs/tags/v0.1.0.tar.gz</param>
+    <param name="filename">howdy-island-0.1.0.tar.gz</param>
+  </service>
+</services>

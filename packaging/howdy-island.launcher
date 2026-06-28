@@ -1,0 +1,6 @@
+#!/bin/sh
+# Launcher for the system-packaged howdy-island.
+# The application code lives outside the default Python path, so we point
+# PYTHONPATH at it and run the module entry point.
+export PYTHONPATH="/usr/lib/howdy-island${PYTHONPATH:+:$PYTHONPATH}"
+exec python3 -m howdy_island "$@"

@@ -1,0 +1,22 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE = 1
+
+%:
+	dh $@
+
+# Pure-Python application with a non-standard install layout: there is nothing
+# to build, and we place files by hand during install.
+override_dh_auto_build:
+
+override_dh_auto_install:
+	install -d debian/howdy-island/usr/lib/howdy-island
+	cp -a src/howdy_island debian/howdy-island/usr/lib/howdy-island/howdy_island
+	find debian/howdy-island/usr/lib/howdy-island -name '__pycache__' -type d -prune -exec rm -rf {} +
+	install -Dm0755 packaging/howdy-island.launcher debian/howdy-island/usr/bin/howdy-island
+	install -Dm0644 packaging/howdy-island.service debian/howdy-island/usr/lib/systemd/user/howdy-island.service
+	install -Dm0644 data/style.css debian/howdy-island/usr/share/howdy-island/style.css
+
+# The unit is a per-user service; do not let dh try to enable it system-wide.
+override_dh_installsystemd:
+override_dh_installsystemduser:

@@ -61,6 +61,24 @@ compositors.
 
 ## Install
 
+### From your package manager (repositories)
+
+The recommended way — install and get updates through your package manager.
+
+**Fedora (COPR):**
+
+```bash
+sudo dnf copr enable sijuz/howdy-island
+sudo dnf install howdy-island
+```
+
+**Ubuntu / Debian (openSUSE Build Service):** add the repo shown on the
+project's [OBS page](https://build.opensuse.org/), then `sudo apt install
+howdy-island`.
+
+> Maintainers: see [`docs/PACKAGING.md`](docs/PACKAGING.md) for how these
+> repositories are set up and how to publish a new version.
+
 ### From a release (prebuilt packages)
 
 Download the latest `.deb` (Ubuntu/Debian) or `.rpm` (Fedora) from the
